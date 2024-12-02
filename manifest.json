@@ -1,0 +1,38 @@
+{
+  "name": "888",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "888 Chrome Extension",
+  "icons": {
+    "16": "img/888.png",
+    "48": "img/48.png"
+  },
+  "action": {
+     "default_icon": "img/888.png",
+     "default_popup": "popup.html"
+   },
+   "content_scripts": [{
+     "matches": [ 
+       "https://meet.google.com/*",
+       "http://localhost:*/*",
+       "http://127.0.0.1:*/*",
+       "https://app.zoom.us/*"
+     ],
+     "js": [ "loader.js" ],
+     "run_at": "document_start"
+   }],
+   "web_accessible_resources": [ {
+     "resources": [ 
+       "hoge.js",
+       "module.js",
+       "main.js",
+       "loader.js",
+       "bgm/*.mp3"
+     ],
+     "matches": ["<all_urls>"]
+   } ],
+   "permissions": ["tabs", "scripting", "nativeMessaging"],
+   "host_permissions": [
+     "<all_urls>"
+   ]
+}
